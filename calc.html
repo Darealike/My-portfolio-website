@@ -1,0 +1,149 @@
+<!<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <title></title>
+        <meta utf-8>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="calc.css">
+       
+       <style>
+           
+           body{
+                margin: 0;
+                padding: 0;
+                display: flex;
+                height: 200vh;
+                justify-content: center;
+               background-image: url(cover.jpg);
+               background-size: cover;
+               background-repeat: no-repeat;
+               background-position: center;
+               background-attachment: fixed;
+               border: 8px solid yellow;
+                
+            }
+            .container{
+                width: 550px;
+                height: 650px;
+                background-color: black;
+                border-radius: 10px;
+                margin-top: 25%;
+            }
+            .keys{
+                
+                display: grid;
+                grid-template-columns:repeat(4,1fr);
+                gap: 10px;
+                width: 550px;
+                height:500px ;
+                padding: 10px;
+                
+            }
+
+            button{
+                border-radius: 50px;
+                width: 100px;
+                font-size: 3rem;
+                background: transparent;
+                color: rgb(255, 255, 255);
+                font-family: cursive;
+        
+            }
+            #display{
+                width: 100%;
+                height: 100px;
+                overflow: hidden;
+                border-radius: 5px;
+                background: rgb(37, 35, 35);
+                border: transparent;
+                color: white;
+                font-size: 2rem;
+                font-family: cursive;
+                text-align: left;
+                padding: 20px;
+            }
+                
+            .navbar{
+            display: flex;
+            justify-content: flex-end;
+            gap: 40px;
+            align-content: space-between;
+            background-color:black;
+            color: white;
+           
+            height: 60px;
+            font-size: 2rem;
+            }
+            
+        </style>
+
+    </head>
+    <div class="navbar">
+    
+            <a href="">about</a>
+            <a href="https://www.youtube.com/">videos</a>
+            <a href="">socials</a>
+            <a href="">portfolio</a>
+  
+    </div>
+    <body>
+         
+
+        <div class="container">
+            <input id="display" readonly>
+            <div class="keys">
+                <button onclick="clearbutton()">AC</button>
+                <button onclick="appendtodisplay('00')">00</button>
+                <button onclick="sliceButton()">C</button>
+                <button onclick="appendtodisplay('/')">/</button>
+                <button onclick="appendtodisplay('7')">7</button>
+                <button onclick="appendtodisplay('8')">8</button>
+                <button onclick="appendtodisplay('9')">9</button>
+                <button onclick="appendtodisplay('+') "> + </button>
+                <button onclick="appendtodisplay('4')">4</button>
+                <button onclick="appendtodisplay('5')">5</button>
+                <button onclick="appendtodisplay('6')">6</button>
+                <button onclick="appendtodisplay('-')">-</button>
+                <button onclick="appendtodisplay('1')">1</button>
+                <button onclick="appendtodisplay('2')">2</button>
+                <button onclick="appendtodisplay('3')">3</button>
+                <button onclick="appendtodisplay('*')">*</button>
+                <button onclick="appendtodisplay('0')">0</button>
+                <button onclick="appendtodisplay('.')">.</button>
+                <button onclick="equals()">=</button>
+            </div>
+        </div>
+    </body>
+
+    <script>
+        const display = document.getElementById("display");
+        
+        function appendtodisplay(input){
+            display.value += input;
+        }
+
+          function clearbutton(){
+            display.value = "";
+          }
+
+        function equals() {
+            try{
+                display.value = eval(display.value)
+            }
+            catch(error){
+                display.value= 'wrong';
+            };
+
+        }
+
+        function sliceButton(){
+            display.value = display.value.slice(0,-1);
+        }
+    
+
+    </script>
+</html>
